@@ -8,7 +8,7 @@ def arithmetic_mean(lst): #среднее арифметическое
     for i in lst:
         s += i
     print(s / len(lst))
-
+P
     
 def addition3x():  # сложение трехзначных чисел
     right = 0 #number of correct answers
