@@ -3,20 +3,32 @@ from itertools import product
 import time
 from typing import List
 
+list_addition3x_start = []
+list_addition2x_start = []
+list_subtraction3x_start = []
+list_subtraction2x_start = []
+list_multiplication3x_start = []
+list_multiplication2x_start = []
+list_multiplication1x_start = []
+list_division3x_start = []
+list_division2x_start = []
+
+arithmetic_mean_addition3x = []
+
 def arithmetic_mean(lst): #среднее арифметическое 
     s = 0
     for i in lst:
         s += i
     print(s / len(lst))
-P
+
     
 def addition3x():  # сложение трехзначных чисел
+    global list_addition3x_start
     right = 0 #number of correct answers
     m = 2
     error = 0
-    global timelist
-    timelist = []
-    global arithmetic_mean_list
+    global arithmetic_mean
+    global arithmetic_mean_addition3x
     arithmetic_mean_list = []
     while right <= m:
         tm1 = time.time()
@@ -32,19 +44,23 @@ def addition3x():  # сложение трехзначных чисел
             print('Осталось ', m - right, ' примеров')
             tm2 = time.time()
             timenumber = int(tm2 - tm1)
-            timelist.append(timenumber) 
+            list_addition3x_start.append(timenumber) 
         else:
             error += 1
             m += 10
             print('Осталось', m, ' примеров')
         if right == m:
-            break
-    print(timelist)    
-    arithmetic_mean(timelist)
+            break    
+    arithmetic_mean(list_addition3x_start)
+    arithmetic_mean_addition3x.append(arithmetic_mean(list_addition3x_start))
+addition3x()
+
+print(list_addition3x_start)
+print(arithmetic_mean_addition3x)
 
 addition3x()
-arithmetic_mean_list.append(arithmetic_mean(timelist))
-print(arithmetic_mean_list)
+print(list_addition3x_start)
+print(arithmetic_mean_addition3x)
 
 
 
