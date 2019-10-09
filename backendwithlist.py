@@ -12,24 +12,26 @@ list_multiplication2x_start = []
 list_multiplication1x_start = []
 list_division3x_start = []
 list_division2x_start = []
+arithmetic_mean_addition2x = []
+arithmetic_mean_substraction3x = []
+list_subtraction2x_start = []
+##def arithmetic_mean(lst):  # среднее арифметическое
+##    s = 0
+##    for i in lst:
+##        s += i
+##    i = s / len(lst)
 
-arithmetic_mean_addition3x = []
 
-def arithmetic_mean(lst): #среднее арифметическое 
-    s = 0
-    for i in lst:
-        s += i
-    print(s / len(lst))
 
-    
+
 def addition3x():  # сложение трехзначных чисел
     global list_addition3x_start
-    right = 0 #number of correct answers
+    right = 0  # number of correct answers
     m = 2
     error = 0
     global arithmetic_mean
     global arithmetic_mean_addition3x
-    arithmetic_mean_list = []
+    arithmetic_mean_list = [0]
     while right <= m:
         tm1 = time.time()
         fisrt = random.randint(100, 999)
@@ -44,31 +46,29 @@ def addition3x():  # сложение трехзначных чисел
             print('Осталось ', m - right, ' примеров')
             tm2 = time.time()
             timenumber = int(tm2 - tm1)
-            list_addition3x_start.append(timenumber) 
+            list_addition3x_start.append(timenumber)
         else:
             error += 1
             m += 10
             print('Осталось', m, ' примеров')
         if right == m:
-            break    
-    arithmetic_mean(list_addition3x_start)
-    arithmetic_mean_addition3x.append(arithmetic_mean(list_addition3x_start))
-addition3x()
-
-print(list_addition3x_start)
-print(arithmetic_mean_addition3x)
-
-addition3x()
-print(list_addition3x_start)
-print(arithmetic_mean_addition3x)
-
+            break
+    s = 0
+    for i in list_addition3x_start:
+        s += i
+    i = s / len(list_addition3x_start)
+    arithmetic_mean_addition3x.append(i)
+    print(list_addition3x_start)
+    list_addition3x_start = []
+    print(arithmetic_mean_addition3x)
 
 
 def addition2x():  # Cложение 2-х значных чисел ГОТОВО
-    right = 0 #number of correct answers
+    global list_addition2x_start
+    global arithmetic_mean_addition2x
+    right = 0  # number of correct answers
     m = 2
     error = 0
-    timelist_addition2 = []
     while right <= m:
         tm1 = time.time()
         fisrt = random.randint(10, 99)
@@ -83,23 +83,30 @@ def addition2x():  # Cложение 2-х значных чисел ГОТОВО
             print('Осталось ', m - right, ' примеров')
             tm2 = time.time()
             timenumber = int(tm2 - tm1)
-            timelist_addition2.append(timenumber) 
+            list_addition2x_start.append(timenumber)
         else:
             error += 1
             m += 10
             print('Осталось', m, ' примеров')
         if right == m:
             break
-    print(timelist_addition2)    
-    arithmetic_mean(timelist_addition2)
-
+    arithmetic_mean(list_addition2x_start)
+    s = 0
+    for i in list_addition2x_start:
+        s += i
+    i = s / len(list_addition2x_start)
+    arithmetic_mean_addition2x.append(i)
+    print(list_addition2x_start)
+    list_addition2x_start = []
+    print(arithmetic_mean_addition2x)
 
 
 def subtraction3x():  # ычитание 3-х чисел
-    right = 0 #number of correct answers
+    global arithmetic_mean_substraction3x
+    right = 0  # number of correct answers
     m = 2
     error = 0
-    timelist_subtraction3 = []
+    list_subtraction3x_start = []
     while right <= m:
         tm1 = time.time()
         fisrt = random.randint(100, 999)
@@ -114,26 +121,33 @@ def subtraction3x():  # ычитание 3-х чисел
             print('Осталось ', m - right, ' примеров')
             tm2 = time.time()
             timenumber = int(tm2 - tm1)
-            timelist_subtraction3.append(timenumber) 
+            list_subtraction3x_start.append(timenumber)
         else:
             error += 1
             m += 10
             print('Осталось', m, ' примеров')
         if right == m:
             break
-    print(timelist_subtraction3)    
-    arithmetic_mean(timelist_subtraction3)
+    s = 0
+    for i in list_subtraction3x_start:
+        s += i
+    i = s / len(list_subtraction3x_start)
+    arithmetic_mean_substraction3x.append(i)
+    print(list_subtraction3x_start)
+    list_subtraction3x_start = []
+    print(arithmetic_mean_substraction3x)
+
 
 
 def subtraction2x():  # Вычитание 2-х чисел
-    right = 0 #number of correct answers
+    right = 0  # number of correct answers
     m = 2
     error = 0
-    timelist_subtraction2 = []
+    list_subtraction2x_start = []
     while right <= m:
         tm1 = time.time()
-        fisrt = random.randint(10, 99)
-        second = random.randint(10, 99)
+        fisrt = random.randint(1, 9)
+        second = random.randint(1, 9)
         n = fisrt - second
         print(fisrt, '-', second)
         answer = int(input())
@@ -144,18 +158,26 @@ def subtraction2x():  # Вычитание 2-х чисел
             print('Осталось ', m - right, ' примеров')
             tm2 = time.time()
             timenumber = int(tm2 - tm1)
-            timelist_subtraction2.append(timenumber) 
+            list_subtraction2x_start.append(timenumber)
         else:
             error += 1
             m += 10
             print('Осталось', m, ' примеров')
         if right == m:
             break
-    print(timelist_subtraction2)    
-    arithmetic_mean(timelist_subtraction2)
+    print(list_subtraction2x_start)
+    s = 0
+    for i in list_subtraction2x_start:
+        s += i
+    i = s / len(list_subtraction2x_start)
+    arithmetic_mean_substraction2x.append(i)
+    print(list_subtraction2x_start)
+    list_subtraction2x_start = []
+    print(arithmetic_mean_substraction2x)
+
 
 def multiplication3x():  # Умножение трехзначных чисел
-    right = 0 #number of correct answers
+    right = 0  # number of correct answers
     m = 2
     error = 0
     timelist_multiolication3 = []
@@ -173,18 +195,19 @@ def multiplication3x():  # Умножение трехзначных чисел
             print('Осталось ', m - right, ' примеров')
             tm2 = time.time()
             timenumber = int(tm2 - tm1)
-            timelist_multiplication3.append(timenumber) 
+            timelist_multiplication3.append(timenumber)
         else:
             error += 1
             m += 10
             print('Осталось', m, ' примеров')
         if right == m:
             break
-    print(timelist_multiplication3)    
+    print(timelist_multiplication3)
     arithmetic_mean(timelist_multiplication3)
 
+
 def multiplication2x():  # Умножение дыухзначных чисел
-    right = 0 #number of correct answers
+    right = 0  # number of correct answers
     m = 2
     error = 0
     timelist_multiolication2 = []
@@ -202,19 +225,19 @@ def multiplication2x():  # Умножение дыухзначных чисел
             print('Осталось ', m - right, ' примеров')
             tm2 = time.time()
             timenumber = int(tm2 - tm1)
-            timelist_multiplication2.append(timenumber) 
+            timelist_multiplication2.append(timenumber)
         else:
             error += 1
             m += 10
             print('Осталось', m, ' примеров')
         if right == m:
             break
-    print(timelist_muultiplication2)    
+    print(timelist_muultiplication2)
     arithmetic_mean(timelist_multiplication2)
-    
+
 
 def multiplication1x():  # Умножение однозначных чисел
-    right = 0 #number of correct answers
+    right = 0  # number of correct answers
     m = 2
     error = 0
     timelist_multiolication1 = []
@@ -232,14 +255,14 @@ def multiplication1x():  # Умножение однозначных чисел
             print('Осталось ', m - right, ' примеров')
             tm2 = time.time()
             timenumber = int(tm2 - tm1)
-            timelist_multiplication1.append(timenumber) 
+            timelist_multiplication1.append(timenumber)
         else:
             error += 1
             m += 10
             print('Осталось', m, ' примеров')
         if right == m:
             break
-    print(timelist_multiplication1)    
+    print(timelist_multiplication1)
     arithmetic_mean(timelist_multiplication1)
 
 
@@ -247,7 +270,7 @@ def division3x():  # Деление
     time1 = time.time()
     a = 0
     examples = 2
-    pairs = [(den, res) for (den, res) in product(range(2, 51), repeat = 2) if
+    pairs = [(den, res) for (den, res) in product(range(2, 51), repeat=2) if
              den * res <= 1000]  # подбор рандомных чисел
     for i, (den, res) in enumerate(random.sample(pairs, 15)):
         print("{}) Сколько будет {} / {} = ?".format(i + 1, den * res, den))
@@ -261,10 +284,11 @@ def division3x():  # Деление
         if examples == 0:
             print('Поздравляю, но это только начало) ну или конец, только конец, это начало чего-то хорошего или '
                   'плохого')
-            print('Ваше время решения деления: ', int(time.time() - time1) // 60, ' минут', int(time.time() - time1) % 60, ' секунд')
+            print('Ваше время решения деления: ', int(time.time() - time1) // 60, ' минут',
+                  int(time.time() - time1) % 60, ' секунд')
             minute = int(time.time() - time1) // 60
             seconds = int(time.time() - time1) % 60
-            
+
             print(table)
             break
 
@@ -272,8 +296,8 @@ def division3x():  # Деление
 def division2x():  # Деление
     time1 = time.time()
     a = 0
-    examples = 2
-    pairs = [(den, res) for (den, res) in product(range(2, 51), repeat = 2) if
+    examples = 50
+    pairs = [(den, res) for (den, res) in product(range(2, 51), repeat=2) if
              den * res <= 100]  # подбор рандомных чисел
     for i, (den, res) in enumerate(random.sample(pairs, 15)):
         print("{}) Сколько будет {} / {} = ?".format(i + 1, den * res, den))
@@ -287,12 +311,10 @@ def division2x():  # Деление
         if examples == 0:
             print('Поздравляю, но это только начало) ну или конец, только конец, это начало чего-то хорошего или '
                   'плохого')
-            print('Ваше время решения деления: ', int(time.time() - time1) // 60, ' минут', int(time.time() - time1) % 60, ' секунд')
+            print('Ваше время решения деления: ', int(time.time() - time1) // 60, ' минут',
+                  int(time.time() - time1) % 60, ' секунд')
             minute = int(time.time() - time1) // 60
             seconds = int(time.time() - time1) % 60
-            table: List[int] = [ minute, seconds]
+            table: List[int] = [minute, seconds]
             print(table)
             break
-
-
-print(timelist_multiplication2)
