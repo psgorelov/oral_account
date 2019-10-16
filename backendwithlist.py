@@ -27,34 +27,45 @@ arithmetic_mean_division2x = []
 
 
 def addition3x():  # сложение трехзначных чисел
+   
     global list_addition3x_start
     global arithmetic_mean_addition3x
     right = 0  # number of correct answers
     m = 50
     error = 0
     arithmetic_mean_list = [0]
+   
     while right <= m:
+   
         tm1 = time.time()
         fisrt = random.randint(1, 9)
         second = random.randint(1, 9)
         n = fisrt + second
         print(fisrt, '+', second)
         answer = int(input())
+   
         if right == m:
+   
             break
+   
         if answer == n:
+   
             right += 1
             print('Осталось ', m - right, ' примеров')
             tm2 = time.time()
             timenumber = int(tm2 - tm1)
             list_addition3x_start.append(timenumber)
+   
         else:
+   
             error += 1
             m += 10
             print('Осталось', m - right, ' примеров')
+   
         if right == m:
 
             break
+
     s = 0
 
     for i in list_addition3x_start:
