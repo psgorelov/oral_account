@@ -34,8 +34,8 @@ def addition3x():  # сложение трехзначных чисел
     arithmetic_mean_list = [0]
     while right <= m:
         tm1 = time.time()
-        fisrt = random.randint(100, 999)
-        second = random.randint(100, 999)
+        fisrt = random.randint(1, 9)
+        second = random.randint(1, 9)
         n = fisrt + second
         print(fisrt, '+', second)
         answer = int(input())
@@ -61,6 +61,8 @@ def addition3x():  # сложение трехзначных чисел
     print(list_addition3x_start)
     list_addition3x_start = []
     print(arithmetic_mean_addition3x)
+
+addition3x()
 
 
 def addition2x():  # Cложение 2-х значных чисел ГОТОВО
