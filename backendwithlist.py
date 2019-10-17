@@ -31,7 +31,7 @@ def addition3x():  # сложение трехзначных чисел
     global list_addition3x_start
     global arithmetic_mean_addition3x
     right = 0  # number of correct answers
-    m = 50
+    m = 3
     error = 0
     arithmetic_mean_list = [0]
 
@@ -43,10 +43,6 @@ def addition3x():  # сложение трехзначных чисел
         n = fisrt + second
         print(fisrt, '+', second)
         answer = int(input())
-
-       if right == m:
-
-            break
 
         if answer == n:
 
@@ -66,7 +62,7 @@ def addition3x():  # сложение трехзначных чисел
 
             break
 
-        s = 0
+    s = 0
 
     for i in list_addition3x_start:
         s += i
@@ -76,7 +72,7 @@ def addition3x():  # сложение трехзначных чисел
     print(list_addition3x_start)
     print(arithmetic_mean_addition3x)
 
-
+addition3x()
 
 
 def addition2x():  # Cложение 2-х значных чисел ГОТОВО
