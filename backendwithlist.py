@@ -15,7 +15,13 @@ list_division2x_start = []
 arithmetic_mean_addition3x = []
 arithmetic_mean_addition2x = []
 arithmetic_mean_substraction3x = []
+arithmetic_mean_substraction2x = []
+arithmetic_mean_subtraction3x = []
+arithmetic_mean_subtraction2x = []
+arithmetic_mean_multiplication3x = []
+arithmetic_mean_multiplication2 = []x
 arithmetic_mean_division3x = []
+
 arithmetic_mean_division2x = []
 ##def arithmetic_mean(lst):  # пример вычисления среднего арифметического
 ##    s = 0
@@ -71,8 +77,6 @@ def addition3x():  # сложение трехзначных чисел
     arithmetic_mean_addition3x.append(i)
     print(list_addition3x_start)
     print(arithmetic_mean_addition3x)
-
-addition3x()
 
 
 def addition2x():  # Cложение 2-х значных чисел ГОТОВО
@@ -172,7 +176,6 @@ def subtraction3x():  # ычитание 3-х чисел
     print('Среднее значение времени', arithmetic_mean_subtraction3x)
 
 
-
 def subtraction2x():  # Вычитание 2-х чисел
     right = 0  # number of correct answers
     m = 2      # number of examples
@@ -221,8 +224,6 @@ def subtraction2x():  # Вычитание 2-х чисел
     print('Значение времени решения каждого примера', timelist_subtraction2x)
     timelist_subtraction2x = []
     print('Среднее значение времени', arithmetic_mean_subtraction2x)
-
-subtraction2x()
 
 
 def multiplication3x():  # Умножение трехзначных чисел
@@ -327,7 +328,6 @@ def multiplication2x():  # Умножение дыухзначных чисел
     print('Среднее значение времени', arithmetic_mean_multiplication2x)
 
 
-
 def multiplication1x():  # Умножение однозначных чисел
 
     right = 0  # number of correct answers
@@ -375,7 +375,6 @@ def multiplication1x():  # Умножение однозначных чисел
     print('Среднее значение времени', arithmetic_mean_multiplication1x)
 
 
-
 def division3x():  # Деление
 
     list_division3x_start = []
@@ -418,9 +417,6 @@ def division3x():  # Деление
     print('Значение времени решения каждого примера', list_division3x_start)
     list_division3x_start = []
     print('Среднее значение времени', arithmetic_mean_division3x)
-
-
-    
 
 
 def division2x():  # Деление
