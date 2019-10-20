@@ -19,7 +19,7 @@ arithmetic_mean_substraction2x = []
 arithmetic_mean_subtraction3x = []
 arithmetic_mean_subtraction2x = []
 arithmetic_mean_multiplication3x = []
-arithmetic_mean_multiplication2 = []x
+arithmetic_mean_multiplication2 = []
 arithmetic_mean_division3x = []
 
 arithmetic_mean_division2x = []
@@ -28,8 +28,6 @@ arithmetic_mean_division2x = []
 ##    for i in lst:
 ##        s += i
 ##    i = s / len(lst)
-
-
 
 
 def addition3x():  # сложение трехзначных чисел
@@ -462,4 +460,21 @@ def division2x():  # Деление
     list_division2x_start = []
     print('Среднее значение времени', arithmetic_mean_division2x)
 
+def hubrydpm():
+    a = 0   
+    while True:
+        first = random.randint(1, 9)
+        second = random.randint(1, 9)
+        third =  random.randint(1, 9)
+        if third >= first + second:
+            continue 
+        n = first + second - third
+        print(first, '+', second, '-', third)
+        print(n)
+        answer = int(input())
+        if answer == n:
+            print('sidnjdn')
+        else:
+            a += 1
 
+hubrydpm()
