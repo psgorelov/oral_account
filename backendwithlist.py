@@ -29,23 +29,30 @@ arithmetic_mean_division2x = []
 ##        s += i
 ##    i = s / len(lst)
 
-
-def addition3x():  # сложение трехзначных чисел
-
+def main(r1, r2, r3, r4, action, summ, hmistake):
     global list_addition3x_start
     global arithmetic_mean_addition3x
-    right = 0  # number of correct answers
-    m = 3
+    m = 0  # number of correct answers
     error = 0
     arithmetic_mean_list = [0]
-
+    right = 0
     while right <= m:
 
         tm1 = time.time()
-        fisrt = random.randint(1, 9)
-        second = random.randint(1, 9)
-        n = fisrt + second
-        print(fisrt, '+', second)
+        first = random.randint(r1, r2)
+        second = random.randint(r3, r4)
+        if action == '+':
+            n = first + second
+            print(first, '+', second)
+        elif action == '-':
+            n= first - second
+            print(first, '-', second)
+        elif action == '*':
+            n = first * second 
+            print(first, '*', second)
+        elif action == '/':
+            n = first / second
+            print(first, '/', second)
         answer = int(input())
 
         if answer == n:
@@ -59,8 +66,8 @@ def addition3x():  # сложение трехзначных чисел
         else:
 
             error += 1
-            m += 10
-            print('Осталось', m - right, ' примеров')
+            m += hmistake
+            print('Осталось', m + hmistake, ' примеров')
 
         if right == m:
 
@@ -75,6 +82,8 @@ def addition3x():  # сложение трехзначных чисел
     arithmetic_mean_addition3x.append(i)
     print(list_addition3x_start)
     print(arithmetic_mean_addition3x)
+
+main(1, 100, 1, 100, '-', 6, 1)
 
 
 def addition2x():  # Cложение 2-х значных чисел ГОТОВО
@@ -92,9 +101,6 @@ def addition2x():  # Cложение 2-х значных чисел ГОТОВО
         n = fisrt + second
         print(fisrt, '+', second)
         answer = int(input())
-        if right == m:
-
-            break
 
         if answer == n:
 
@@ -108,7 +114,7 @@ def addition2x():  # Cложение 2-х значных чисел ГОТОВО
 
             error += 1
             m += 10
-            print('Осталось', m - right, ' примеров')
+            print('Осталось', m + hmistake, ' примеров')
 
         if right == m:
 
@@ -134,8 +140,8 @@ def subtraction3x():  # ычитание 3-х чисел
     while right <= m:
 
         tm1 = time.time()
-        fisrt = random.randint(100, 999)
-        second = random.randint(100, 999)
+        fisrt = random.randint(1, 9)
+        second = random.randint(1, 9)
         n = fisrt - second
         print(fisrt, '-', second)
         answer = int(input())
@@ -173,6 +179,7 @@ def subtraction3x():  # ычитание 3-х чисел
     timelist_subtraction3x = []
     print('Среднее значение времени', arithmetic_mean_subtraction3x)
 
+subtraction3x()
 
 def subtraction2x():  # Вычитание 2-х чисел
     right = 0  # number of correct answers
@@ -460,21 +467,31 @@ def division2x():  # Деление
     list_division2x_start = []
     print('Среднее значение времени', arithmetic_mean_division2x)
 
-def hubrydpm():
+def plusandminus():
+    tm1 = time.time()
+    examples = 50
     a = 0   
     while True:
-        first = random.randint(1, 9)
-        second = random.randint(1, 9)
-        third =  random.randint(1, 9)
+        tm1 = time.time()
+        b = random.randint(1, 1000)
+        c = random.randint(1, 1000)
+        if b >= c:
+            continue
+        first = random.randint(b, c)
+        second = random.randint(b, c)
+        third =  random.randint(b, c)
         if third >= first + second:
             continue 
         n = first + second - third
         print(first, '+', second, '-', third)
         print(n)
-        answer = int(input())
+        answer = int(input())   
         if answer == n:
             print('sidnjdn')
         else:
             a += 1
+        if examples == 0:
+            break
 
-hubrydpm()
+
+plusandminus()
