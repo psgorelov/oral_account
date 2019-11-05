@@ -83,301 +83,6 @@ def main(r1, r2, r3, r4, action, summ, hmistake):
     print(list_addition3x_start)
     print(arithmetic_mean_addition3x)
 
-main(1, 100, 1, 100, '-', 6, 1)
-
-
-def addition2x():  # Cложение 2-х значных чисел ГОТОВО
-    global list_addition2x_start
-    global arithmetic_mean_addition2x
-
-    right = 0  # number of correct answers
-    m = 50
-    error = 0
-
-    while right <= m:
-        tm1 = time.time()
-        fisrt = random.randint(10, 99)
-        second = random.randint(10, 99)
-        n = fisrt + second
-        print(fisrt, '+', second)
-        answer = int(input())
-
-        if answer == n:
-
-            right += 1
-            print('Осталось ', m - right, ' примеров')
-            tm2 = time.time()
-            timenumber = int(tm2 - tm1)
-            list_addition2x_start.append(timenumber)
-
-        else:
-
-            error += 1
-            m += 10
-            print('Осталось', m + hmistake, ' примеров')
-
-        if right == m:
-
-            break
-
-    s = 0
-
-    for i in list_addition2x_start:
-        s += i
-    i = s / len(list_addition2x_start)
-    arithmetic_mean_addition2x.append(i)
-    print(list_addition2x_start)
-    list_addition2x_start = []
-    print(arithmetic_mean_addition2x)
-
-
-def subtraction3x():  # ычитание 3-х чисел
-    right = 0  # number of correct answers
-    m = 2      # number of examples
-    error = 0  # number of errors
-    timelist_subtraction3x = []
-    arithmetic_mean_subtraction3x = []
-    while right <= m:
-
-        tm1 = time.time()
-        fisrt = random.randint(1, 9)
-        second = random.randint(1, 9)
-        n = fisrt - second
-        print(fisrt, '-', second)
-        answer = int(input())
-
-        if right == m:
-
-            break
-
-        if answer == n:
-
-            right += 1
-            print('Осталось ', m - right, ' примеров')
-            tm2 = time.time()
-            timenumber = int(tm2 - tm1)
-            timelist_subtraction3x.append(timenumber)
-
-        else:
-
-            error += 1
-            m += 10
-            print('Осталось', m - right, ' примеров')
-
-        if right == m:
-
-            break
-
-    s = 0
-
-    for i in timelist_subtraction3x:
-        s += i
-    i = s / len(timelist_subtraction3x)
-    arithmetic_mean_subtraction3x.append(i)
-
-    print('Значение времени решения каждого примера', timelist_subtraction3x)
-    timelist_subtraction3x = []
-    print('Среднее значение времени', arithmetic_mean_subtraction3x)
-
-subtraction3x()
-
-def subtraction2x():  # Вычитание 2-х чисел
-    right = 0  # number of correct answers
-    m = 2      # number of examples
-    error = 0  # number of errors
-    timelist_subtraction2x = []
-    arithmetic_mean_subtraction2x = []
-
-    while right <= m:
-
-        tm1 = time.time()
-        fisrt = random.randint(10, 99)
-        second = random.randint(10, 99)
-        n = fisrt - second
-        print(fisrt, '-', second)
-        answer = int(input())
-
-        if right == m:
-
-            break
-
-        if answer == n:
-
-            right += 1
-            print('Осталось ', m - right, ' примеров')
-            tm2 = time.time()
-            timenumber = int(tm2 - tm1)
-            timelist_subtraction2x.append(timenumber)
-
-        else:
-
-            error += 1
-            m += 10
-            print('Осталось', m - right, ' примеров')
-
-        if right == m:
-
-            break
-
-    s = 0
-
-    for i in timelist_subtraction2x:
-        s += i
-    i = s / len(timelist_subtraction2x)
-    arithmetic_mean_subtraction2x.append(i)
-
-    print('Значение времени решения каждого примера', timelist_subtraction2x)
-    timelist_subtraction2x = []
-    print('Среднее значение времени', arithmetic_mean_subtraction2x)
-
-
-def multiplication3x():  # Умножение трехзначных чисел
-
-    right = 0  # number of correct answers
-    m = 2      # number of examples
-    error = 0  # number of errors
-    timelist_multiplication3 = []
-    arithmetic_mean_multiplication3x = []
-
-    while right <= m:
-
-        tm1 = time.time()
-        fisrt = random.randint(100, 999)
-        second = random.randint(100, 999)
-        n = fisrt * second
-        print(fisrt, '*', second)
-        answer = int(input())
-
-        if right == m:
-
-            break
-
-        if answer == n:
-
-            right += 1
-            print('Осталось ', m - right, ' примеров')
-            tm2 = time.time()
-            timenumber = int(tm2 - tm1)
-            timelist_multiplication3.append(timenumber)
-
-        else:
-
-            error += 1
-            m += 10
-            print('Осталось', m - right, ' примеров')
-
-        if right == m:
-
-            break
-
-    s = 0
-
-    for i in timelist_multiplication3:
-        s += i
-    i = s / len(timelist_multiplication3)
-    arithmetic_mean_multiplication3x.append(i)
-
-    print('Значение времени решения каждого примера', timelist_multiplication3)
-    timelist_multiplication3 = []
-    print('Среднее значение времени', arithmetic_mean_multiplication3x)
-
-
-def multiplication2x():  # Умножение дыухзначных чисел
-
-    right = 0  # number of correct answers
-    m = 2      # number of examples
-    error = 0  # number of errors
-    timelist_multiplication2 = []
-    arithmetic_mean_multiplication2x = []
-
-    while right <= m:
-
-        tm1 = time.time()
-        fisrt = random.randint(10, 99)
-        second = random.randint(10, 99)
-        n = fisrt * second
-        print(fisrt, '*', second)
-        answer = int(input())
-
-        if right == m:
-
-            break
-
-        if answer == n:
-
-            right += 1
-            print('Осталось ', m - right, ' примеров')
-            tm2 = time.time()
-            timenumber = int(tm2 - tm1)
-            timelist_multiplication2.append(timenumber)
-
-        else:
-
-            error += 1
-            m += 10
-            print('Осталось', m - right, ' примеров')
-
-        if right == m:
-
-            break
-
-    s = 0
-
-    for i in timelist_multiplication2:
-        s += i
-    i = s / len(timelist_multiplication2)
-    arithmetic_mean_multiplication2x.append(i)
-
-    print('Значение времени решения каждого примера', timelist_multiplication2)
-    timelist_multiplication2 = []
-    print('Среднее значение времени', arithmetic_mean_multiplication2x)
-
-
-def multiplication1x():  # Умножение однозначных чисел
-
-    right = 0  # number of correct answers
-    m = 2      # number of examples
-    error = 0  # number of errors
-    timelist_multiplication1 = []
-    arithmetic_mean_multiplication1x = []
-
-    while right <= m:
-
-        tm1 = time.time()
-        fisrt = random.randint(1, 9)
-        second = random.randint(1, 9)
-        n = fisrt * second
-        print(fisrt, '*', second)
-        answer = int(input())
-
-        if answer == n:
-
-            right += 1
-            print('Осталось ', m - right, ' примеров')
-            tm2 = time.time()
-            timenumber = int(tm2 - tm1)
-            timelist_multiplication1.append(timenumber)
-
-        else:
-
-            error += 1
-            m += 10
-            print('Осталось', m - right, ' примеров')
-
-        if right == m:
-
-            break
-
-    s = 0
-
-    for i in timelist_multiplication1:
-        s += i
-    i = s / len(timelist_multiplication1)
-    arithmetic_mean_multiplication1x.append(i)
-
-    print('Значение времени решения каждого примера', timelist_multiplication1)
-    timelist_multiplication1 = []
-    print('Среднее значение времени', arithmetic_mean_multiplication1x)
 
 
 def division3x():  # Деление
@@ -467,14 +172,15 @@ def division2x():  # Деление
     list_division2x_start = []
     print('Среднее значение времени', arithmetic_mean_division2x)
 
-def plusandminus():
+
+def plusandminus(examples, n1, n2, n3, n4):
     tm1 = time.time()
     examples = 50
     a = 0   
     while True:
         tm1 = time.time()
-        b = random.randint(1, 1000)
-        c = random.randint(1, 1000)
+        b = random.randint(n1, n2)
+        c = random.randint(n3, n4)
         if b >= c:
             continue
         first = random.randint(b, c)
@@ -491,7 +197,109 @@ def plusandminus():
         else:
             a += 1
         if examples == 0:
+            tm2 = time.time()
             break
 
+    s = 0
 
-plusandminus()
+    for i in list_addition3x_start:
+        s += i
+    i = s / len(list_addition3x_start)
+
+    arithmetic_mean_addition3x.append(i)
+    print(list_addition3x_start)
+    print(arithmetic_mean_addition3x)
+
+
+        
+def multX(n1, n2, mestake, amount, x): #умножение на определенное число
+    tm1 = time.time()
+    mest = 0
+    list = []
+    time1 = []
+    while True:
+        
+        number = random.randint(n1, n2)
+        print(number, '*', x)
+        n = number * x
+        answer = int(input())
+        
+        if answer == n:
+            
+            tm2 = time.time()
+            amount -= 1
+            timenumber = tm2 - tm1
+            timenumber = int(timenumber)
+            a = '{} {} {} {} {}, {}, {}'.format(number, '*', x, '=', n, answer, timenumber)
+            list.append([a])
+            time1.append(timenumber)
+        else:
+    
+            mest += 1
+            amount += mestake
+            print("Осталось примеров: ", amount, '\n Допущено ошибок: ', mest)
+    
+        if amount == 0:
+    
+            print('Все примеры были решены. Количество допущенных Вами ошибок: ', mest)
+            break        
+    
+    print(list)
+    s = 0
+    for i in time1:
+        s += i
+    i = s / len(time1)
+    i = int(i)
+    print('Среднее время решения примера: ', i)
+
+#multX(1, 10, 1, 3, 5)
+
+def a1000a(n1, n2, n3, mestake, amount): #пример типа a - (n3 - a)
+
+    mest = 0
+    list = []
+    time1 = []
+    
+    while True:
+        tm1 = time.time()
+        number = random.randint(n1, n2)
+        if number <= n3 - number:
+        
+            continue
+        
+        n = number - (n3 - number)
+        print(number, ' - ', '( ', n3, ' - ', number, ' ) ', n)
+        answer = int(input())
+
+        if  answer == n:
+        
+            tm2 = time.time()
+            amount -= 1
+            timenumber = tm2 - tm1
+            timenumber = int(timenumber)
+            a = '{} {} {} {} {} {} {} {} {}, {}, {}'.format(number, '-', '(', n3, '-', number, ')', '=', n, answer, timenumber)
+            list.append([a])
+            time1.append(timenumber)
+            print('Верно! Осталось примеров: ', amount)
+        
+        else:
+        
+            mest += 1
+            amount += mestake
+            print("Неверно. Осталось примеров: ", amount, '\n Допущено ошибок: ', mest)
+        
+        if amount == 0:
+
+            print('Все примеры были решены. Количество допущенных Вами ошибок: ', mest)
+            break        
+    
+    print(list)
+    s = 0
+    for i in time1:
+        s += i
+    i = s / len(time1)
+    i = int(i)
+    print('Среднее время решения примера: ', i)
+
+a1000a(100, 999, 1000, 10, 5)
+
