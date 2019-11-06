@@ -213,12 +213,12 @@ def plusandminus(examples, n1, n2, n3, n4):
 
         
 def multX(n1, n2, mestake, amount, x): #умножение на определенное число
-    tm1 = time.time()
     mest = 0
     list = []
     time1 = []
     while True:
         
+        tm1 = time.time()
         number = random.randint(n1, n2)
         print(number, '*', x)
         n = number * x
@@ -230,21 +230,24 @@ def multX(n1, n2, mestake, amount, x): #умножение на определе
             amount -= 1
             timenumber = tm2 - tm1
             timenumber = int(timenumber)
-            a = '{} {} {} {} {}, {}, {}'.format(number, '*', x, '=', n, answer, timenumber)
-            list.append([a])
+            a = '{} {} {} {} {}, {}, {}, {}'.format(number, '*', x, '=', n,"Введенный ответ: {}".format(answer), 'Время решения: {} {}'.format(timenumber, 'секунд'), 'Ответ правильный')
+            list.append(a)
             time1.append(timenumber)
         else:
     
             mest += 1
             amount += mestake
             print("Осталось примеров: ", amount, '\n Допущено ошибок: ', mest)
-    
+            tm2 = time.time()
+            timenumber = int(tm2 - tm1)
+            a = '{} {} {} {} {}, {}, {}, {}'.format(number, '*', x, '=', n, 'Введенный ответ: {}'.format(answer),'Время решения: {} {}'.format(timenumber, 'секунд'), 'Ответ неправильный')
+            list.append(a)
+            time1.append(timenumber)
         if amount == 0:
     
             print('Все примеры были решены. Количество допущенных Вами ошибок: ', mest)
             break        
     
-    print(list)
     s = 0
     for i in time1:
         s += i
@@ -252,7 +255,10 @@ def multX(n1, n2, mestake, amount, x): #умножение на определе
     i = int(i)
     print('Среднее время решения примера: ', i)
 
-#multX(1, 10, 1, 3, 5)
+    for i in list:
+        print('\n {}'.format(i))
+
+multX(1, 10, 1, 3, 5)
 
 def a1000a(n1, n2, n3, mestake, amount): #пример типа a - (n3 - a)
 
@@ -277,7 +283,7 @@ def a1000a(n1, n2, n3, mestake, amount): #пример типа a - (n3 - a)
             amount -= 1
             timenumber = tm2 - tm1
             timenumber = int(timenumber)
-            a = '{} {} {} {} {} {} {} {} {}, {}, {}, {}'.format(number, '-', '(', n3, '-', number, ')', '=', n,'введеный ответ: {}'.format(answer), 'Время решения: {}'.format(timenumber), 'Ответ правильный')
+            a = '{} {} {} {} {} {} {} {} {}, {}, {}, {}'.format(number, '-', '(', n3, '-', number, ')', '=', n,'введеный ответ: {}'.format(answer), 'Время решения: {} {}'.format(timenumber, 'секунд'), 'Ответ правильный')
             list.append(a)
             time1.append(timenumber)
             print('Верно! Осталось примеров: ', amount)
@@ -289,7 +295,7 @@ def a1000a(n1, n2, n3, mestake, amount): #пример типа a - (n3 - a)
             mest += 1
             amount += mestake
             print("Неверно. Осталось примеров: ", amount, '\n Допущено ошибок: ', mest)
-            a = '{} {} {} {} {} {} {} {} {}, {}, {}, {}'.format(number, '-', '(', n3, '-', number, ')', '=', n,'введеный ответ: {}'.format(answer), 'Время решения: {}'.format(timenumber), 'Ответ неверен') 
+            a = '{} {} {} {} {} {} {} {} {}, {}, {}, {}'.format(number, '-', '(', n3, '-', number, ')', '=', n,'введеный ответ: {}'.format(answer), 'Время решения: {} {}'.format(timenumber, 'секунд'), 'Ответ неверен') 
             list.append(a)
         if amount == 0:
 
@@ -303,7 +309,10 @@ def a1000a(n1, n2, n3, mestake, amount): #пример типа a - (n3 - a)
     i = s / len(time1)
     i = int(i)
     print('Среднее время решения примера: ', i)
+
     for i in list:
         print('\n {}'.format(i))
-a1000a(100, 999, 1000, 2, 5)
+
+
+#a1000a(100, 999, 1000, 2, 5)
 
