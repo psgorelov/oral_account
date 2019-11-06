@@ -3,87 +3,8 @@ from itertools import product
 import time
 from typing import List
 
-list_addition3x_start = []
-list_addition2x_start = []
-list_subtraction3x_start = []
-list_subtraction2x_start = []
-list_multiplication3x_start = []
-list_multiplication2x_start = []
-list_multiplication1x_start = []
-list_division3x_start = []
-list_division2x_start = []
-arithmetic_mean_addition3x = []
-arithmetic_mean_addition2x = []
-arithmetic_mean_substraction3x = []
-arithmetic_mean_substraction2x = []
-arithmetic_mean_subtraction3x = []
-arithmetic_mean_subtraction2x = []
-arithmetic_mean_multiplication3x = []
-arithmetic_mean_multiplication2 = []
-arithmetic_mean_division3x = []
 
-arithmetic_mean_division2x = []
-##def arithmetic_mean(lst):  # пример вычисления среднего арифметического
-##    s = 0
-##    for i in lst:
-##        s += i
-##    i = s / len(lst)
-
-def main1(r1, r2, r3, r4, action, summ, hmistake):
-    global list_addition3x_start
-    global arithmetic_mean_addition3x
-    m = 0  # number of correct answers
-    mest = 0
-    right = 0
-    while right <= m:
-
-        tm1 = time.time()
-        first = random.randint(r1, r2)
-        second = random.randint(r3, r4)
-        if action == '+':
-            n = first + second
-            print(first, '+', second)
-        elif action == '-':
-            n= first - second
-            print(first, '-', second)
-        elif action == '*':
-            n = first * second 
-            print(first, '*', second)
-        elif action == '/':
-            n = first / second
-            print(first, '/', second)
-        answer = int(input())
-
-        if answer == n:
-
-            right += 1
-            print('Осталось ', m - right, ' примеров')
-            tm2 = time.time()
-            timenumber = int(tm2 - tm1)
-            list_addition3x_start.append(timenumber)
-
-        else:
-
-            error += 1
-            m += hmistake
-            print('Осталось', m + hmistake, ' примеров')
-
-        if right == m:
-
-            break
-
-    s = 0
-
-    for i in list_addition3x_start:
-        s += i
-    i = s / len(list_addition3x_start)
-
-    arithmetic_mean_addition3x.append(i)
-    print(list_addition3x_start)
-    print(arithmetic_mean_addition3x)
-
-
-def main(n1, n2, n3, n4, amount, mestake, action): 
+def main(n1, n2, n3, n4, amount, mestake, action): # amount - кол-во примеров; mestake - сколько добавлять за ошибку; action - действие ( +, -, *, /)
 
     mest = 0
     list1 = []
@@ -152,7 +73,6 @@ def main(n1, n2, n3, n4, amount, mestake, action):
 
     for i in list1:
         print('\n {}'.format(i))
-
 
 
 def division3x():  # Деление
@@ -243,44 +163,18 @@ def division2x():  # Деление
     print('Среднее значение времени', arithmetic_mean_division2x)
 
 
-def plusandminus(examples, n1, n2, n3, n4):
-    tm1 = time.time()
-    examples = 50
-    a = 0   
+def manyactions(n1, n2, action1, action2, amount, mestake): #
+    
+    mest = 0
+    list1 = []
+    time1 = []
+
     while True:
-        tm1 = time.time()
-        b = random.randint(n1, n2)
-        c = random.randint(n3, n4)
-        if b >= c:
-            continue
-        first = random.randint(b, c)
-        second = random.randint(b, c)
-        third =  random.randint(b, c)
-        if third >= first + second:
-            continue 
-        n = first + second - third
-        print(first, '+', second, '-', third)
-        print(n)
-        answer = int(input())   
-        if answer == n:
-            print('sidnjdn')
-        else:
-            a += 1
-        if examples == 0:
-            tm2 = time.time()
-            break
-
-    s = 0
-
-    for i in list_addition3x_start:
-        s += i
-    i = s / len(list_addition3x_start)
-
-    arithmetic_mean_addition3x.append(i)
-    print(list_addition3x_start)
-    print(arithmetic_mean_addition3x)
-
-
+        tm1 =time.time()
+        number1 = random.randint(n1, n2)
+        number2 = random.randint(n1, n2)
+        number3 = random.randint(n1, n2)
+        if 
         
 def multX(n1, n2, mestake, amount, x): #умножение на определенное число
     mest = 0
@@ -392,6 +286,6 @@ def a1000a(n1, n2, n3, mestake, amount): #пример типа a - (n3 - a)
     for i in list:
         print('\n {}'.format(i))
 
-main(1, 10, 1, 10, 5, 2, '+')
+#main(1, 10, 1, 10, 5, 2, '+')
 #multX(1, 10, 1, 3, 5)
 #a1000a(100, 999, 1000, 2, 5)
