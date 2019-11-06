@@ -277,29 +277,33 @@ def a1000a(n1, n2, n3, mestake, amount): #пример типа a - (n3 - a)
             amount -= 1
             timenumber = tm2 - tm1
             timenumber = int(timenumber)
-            a = '{} {} {} {} {} {} {} {} {}, {}, {}'.format(number, '-', '(', n3, '-', number, ')', '=', n, answer, timenumber)
-            list.append([a])
+            a = '{} {} {} {} {} {} {} {} {}, {}, {}, {}'.format(number, '-', '(', n3, '-', number, ')', '=', n,'введеный ответ: {}'.format(answer), 'Время решения: {}'.format(timenumber), 'Ответ правильный')
+            list.append(a)
             time1.append(timenumber)
             print('Верно! Осталось примеров: ', amount)
         
         else:
-        
+            tm2 = time.time()
+            timenumber = tm2 - tm1
+            timenumber = int(timenumber)
             mest += 1
             amount += mestake
             print("Неверно. Осталось примеров: ", amount, '\n Допущено ошибок: ', mest)
-        
+            a = '{} {} {} {} {} {} {} {} {}, {}, {}, {}'.format(number, '-', '(', n3, '-', number, ')', '=', n,'введеный ответ: {}'.format(answer), 'Время решения: {}'.format(timenumber), 'Ответ неверен') 
+            list.append(a)
         if amount == 0:
 
             print('Все примеры были решены. Количество допущенных Вами ошибок: ', mest)
             break        
     
-    print(list)
+    
     s = 0
     for i in time1:
         s += i
     i = s / len(time1)
     i = int(i)
     print('Среднее время решения примера: ', i)
-
-a1000a(100, 999, 1000, 10, 5)
+    for i in list:
+        print('\n {}'.format(i))
+a1000a(100, 999, 1000, 2, 5)
 
