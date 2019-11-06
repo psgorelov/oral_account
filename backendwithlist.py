@@ -29,12 +29,11 @@ arithmetic_mean_division2x = []
 ##        s += i
 ##    i = s / len(lst)
 
-def main(r1, r2, r3, r4, action, summ, hmistake):
+def main1(r1, r2, r3, r4, action, summ, hmistake):
     global list_addition3x_start
     global arithmetic_mean_addition3x
     m = 0  # number of correct answers
-    error = 0
-    arithmetic_mean_list = [0]
+    mest = 0
     right = 0
     while right <= m:
 
@@ -82,6 +81,77 @@ def main(r1, r2, r3, r4, action, summ, hmistake):
     arithmetic_mean_addition3x.append(i)
     print(list_addition3x_start)
     print(arithmetic_mean_addition3x)
+
+
+def main(n1, n2, n3, n4, amount, mestake, action): 
+
+    mest = 0
+    list1 = []
+    time1 = []
+    m = 0
+
+    while True:
+        tm1 = time.time()
+        number1 = random.randint(n1, n2)
+        number2 = random.randint(n3, n4)
+        if action == '+':
+            n = number1 + number2
+            print(number1, '+', number2)
+        elif action == '-':
+            n= number1 - number2
+            print(number1, '-', number2)
+        elif action == '*':
+            n = number1 * number2 
+            print(number1, '*', number2)
+        elif action == '/':
+            n = number1 / number2
+            print(number1, '/', number2)
+        answer = int(input())
+
+        if answer == n:
+        
+            m += 1
+            tm2 = time.time()
+            amount -= 1
+            timenumber = tm2 - tm1
+            timenumber = int(timenumber)
+            if timenumber == 0:
+                timenumber = 1
+            a = '{} {} {} {} {}, {}, {}, {}'.format(number1, '{}'.format(action), number2, '=', n, 'Введенный ответ: {}'.format(answer), 'Время решения: {}'.format(timenumber), 'Ответ правильный')
+            list1.append(a)
+            time1.append(timenumber)
+            print('Осталось примеров: {}'.format(amount))
+
+        else:
+
+            tm2 = time.time()
+            mest += 1
+            amount += mestake
+            timenumber = tm2 - tm1
+            timenumber = int(timenumber)
+            if timenumber == 0:
+                timenumber = 1
+            a = '{} {} {} {} {}, {}, {}, {}'.format(number1, '{}'.format(action), number2, '=', n, 'Введенный ответ: {}'.format(answer), 'Время решения: {}'.format(timenumber), 'Ответ неправильный')
+            list1.append(a)
+            time1.append(timenumber)
+            print('Ответ неправильный. Осталось примеров: {}'.format(amount))
+
+        if amount == 0:
+
+            print('Все примеры были решены. Ошибок: {}. Всего примеров: {}'.format(mest, m))
+            break
+
+    s = 0
+    
+    for i in time1:
+        s += i
+    
+    i = s / len(time1)
+    i = int(i)
+    print('Среднее время решения примера: ', i)
+
+    for i in list1:
+        print('\n {}'.format(i))
 
 
 
@@ -214,7 +284,7 @@ def plusandminus(examples, n1, n2, n3, n4):
         
 def multX(n1, n2, mestake, amount, x): #умножение на определенное число
     mest = 0
-    list = []
+    list1 = []
     time1 = []
     while True:
         
@@ -230,9 +300,13 @@ def multX(n1, n2, mestake, amount, x): #умножение на определе
             amount -= 1
             timenumber = tm2 - tm1
             timenumber = int(timenumber)
+            if timenumber == 0:
+                timenumber = 1
             a = '{} {} {} {} {}, {}, {}, {}'.format(number, '*', x, '=', n,"Введенный ответ: {}".format(answer), 'Время решения: {} {}'.format(timenumber, 'секунд'), 'Ответ правильный')
-            list.append(a)
+            list1.append(a)
             time1.append(timenumber)
+            print('Осталось примеров: {}'.format(amount))
+
         else:
     
             mest += 1
@@ -240,8 +314,10 @@ def multX(n1, n2, mestake, amount, x): #умножение на определе
             print("Осталось примеров: ", amount, '\n Допущено ошибок: ', mest)
             tm2 = time.time()
             timenumber = int(tm2 - tm1)
+            if timenumber == 0:
+                timenumber = 1
             a = '{} {} {} {} {}, {}, {}, {}'.format(number, '*', x, '=', n, 'Введенный ответ: {}'.format(answer),'Время решения: {} {}'.format(timenumber, 'секунд'), 'Ответ неправильный')
-            list.append(a)
+            list1.append(a)
             time1.append(timenumber)
         if amount == 0:
     
@@ -255,10 +331,9 @@ def multX(n1, n2, mestake, amount, x): #умножение на определе
     i = int(i)
     print('Среднее время решения примера: ', i)
 
-    for i in list:
+    for i in list1:
         print('\n {}'.format(i))
 
-multX(1, 10, 1, 3, 5)
 
 def a1000a(n1, n2, n3, mestake, amount): #пример типа a - (n3 - a)
 
@@ -283,6 +358,8 @@ def a1000a(n1, n2, n3, mestake, amount): #пример типа a - (n3 - a)
             amount -= 1
             timenumber = tm2 - tm1
             timenumber = int(timenumber)
+            if timenumber == 0:
+                timenumber = 1
             a = '{} {} {} {} {} {} {} {} {}, {}, {}, {}'.format(number, '-', '(', n3, '-', number, ')', '=', n,'введеный ответ: {}'.format(answer), 'Время решения: {} {}'.format(timenumber, 'секунд'), 'Ответ правильный')
             list.append(a)
             time1.append(timenumber)
@@ -292,6 +369,8 @@ def a1000a(n1, n2, n3, mestake, amount): #пример типа a - (n3 - a)
             tm2 = time.time()
             timenumber = tm2 - tm1
             timenumber = int(timenumber)
+            if timenumber == 0:
+                timenumber = 1
             mest += 1
             amount += mestake
             print("Неверно. Осталось примеров: ", amount, '\n Допущено ошибок: ', mest)
@@ -313,6 +392,6 @@ def a1000a(n1, n2, n3, mestake, amount): #пример типа a - (n3 - a)
     for i in list:
         print('\n {}'.format(i))
 
-
+main(1, 10, 1, 10, 5, 2, '+')
+#multX(1, 10, 1, 3, 5)
 #a1000a(100, 999, 1000, 2, 5)
-
