@@ -170,16 +170,108 @@ def manyactions(n1, n2, action1, action2, amount, mestake): #
     time1 = []
 
     while True:
+       
         tm1 =time.time()
         number1 = random.randint(n1, n2)
         number2 = random.randint(n1, n2)
         number3 = random.randint(n1, n2)
-        if 
+    
+        if action1 == '+' and action2 == '-':
+    
+            n = number1 + number2 - number3
+            print('{} + {} - {}'.format(number1, number2, number3))
+            answer = int(input())
+            #n1 = '{} + {} - {}'.format(number1, number2, number3)
+        if action1 == '-' and action2 == '+':
+            n = number1 - number2 + number3
+            print('{} - {} + {}'.format(number1, number2, number3))
+            answer = int(input())
+            #n1 = '{} - {} + {}'.format(number1, number2, number3)
+        if action1 == '+' and action2 == '*':
+            n = number1 + number2 * number3
+            print('{} + {} * {}'.format(number1, number2, number3))
+            answer = int(input())
+            #n1 = '{} + {} * {}'.format(number1, number2, number3)
+        if action1 == '+' and action2 == '/':
+            n = number1 + number2 / number3
+            print('{} + {} / {}'.format(number1, number2, number3))
+            answer = int(input())
+            #n1 = '{} + {} / {}'.format(number1, number2, number3)
+        if action1 == '-' and action2 == '*':
+            n = number1 - number2 * number3
+            print('{} - {} * {}'.format(number1, number2, number3))
+            answer = int(input())
+            #n1 = '{} - {} * {}'.format(number1, number2, number3)
+        if action1 == '-' and action2 == '/':
+            n = number1 + number2 - number3
+            print('{} - {} / {}'.format(number1, number2, number3))
+            answer = int(input())
+            #n1 = '{} - {} / {}'.format(number1, number2, number3)
+        if action1 == '*' and action2 == '+':
+            n = number1 + number2 - number3
+            print('{} * {} / {}'.format(number1, number2, number3))
+            answer = int(input())
+            #n1 = '{} * {} / {}'.format(number1, number2, number3)
+        if action1 == '*' and action2 == '-':
+            n = number1 + number2 - number3
+            print('{} * {} - {}'.format(number1, number2, number3))
+            answer = int(input())
+            #n1 = '{} * {} - {}'.format(number1, number2, number3)
+        if action1 == '*' and action2 == '/':
+            n = number1 + number2 - number3
+            print('{} * {} / {}'.format(number1, number2, number3))
+            answer = int(input())
+           # n1 = '{} * {} / {}'.format(number1, number2, number3)
+
+        if answer == n:
         
+            tm2 = time.time()
+            amount -= 1
+            timenumber = tm2 - tm1
+            timenumber = int(timenumber)
+            if timenumber == 0:
+                timenumber = 1
+            a = '{} {} {} {} {} = {}, {}, {}, {}'.format(number1, action1, number2, action2, number3, n, 'Введенный ответ: {}'.format(answer),  'Время решения: {} {}'.format(timenumber, 'секунд'), 'Ответ правильный')
+            list1.append(a)
+            time1.append(timenumber)
+            if amount > 0:
+                print('Осталось примров: ', amount)
+
+        else:
+    
+            mest += 1
+            amount += mestake
+            print('Осталось примеров: {} , \n Допущено ошибок: {}'.format(amount, mest))
+            tm2 = time.time()
+            timenumber = int(tm2 - tm1)
+            if timenumber == 0:
+                timnumber = 1
+            a = '{} = {}, {}, {}, {}'.format(n1, n, 'Введенный ответ: {}'.format(answer),  'Время решения: {} {}'.format(timenumber, 'секунд'), 'Ответ неправильный')
+            list1.append(a)
+            time1.append(timenumber)
+
+        if amount == 0:
+    
+            print('Все примеры решены. Количество допущенных вами ошибок: ', mest)
+            break
+
+    s = 0
+    for i in time1:
+        s += i
+    i = s / len(time1)
+    i = int(i)
+    print('Среднее время решения примера: ', i)
+
+    for i in list1:
+        print('\n {}'.format(i))
+
+
 def multX(n1, n2, mestake, amount, x): #умножение на определенное число
+    
     mest = 0
     list1 = []
     time1 = []
+    
     while True:
         
         tm1 = time.time()
@@ -229,7 +321,8 @@ def multX(n1, n2, mestake, amount, x): #умножение на определе
         print('\n {}'.format(i))
 
 
-def a1000a(n1, n2, n3, mestake, amount): #пример типа a - (n3 - a)
+def a1000a(n1, n2, n3, mestake, amount): #пример типа a - (n3 - a) n1 и n2 границы возможного числа metake - сколько прибавлять примеров за ошибку amount - количество примеров n3 число из которого вычисялть
+
 
     mest = 0
     list = []
@@ -246,6 +339,7 @@ def a1000a(n1, n2, n3, mestake, amount): #пример типа a - (n3 - a)
         print(number, ' - ', '( ', n3, ' - ', number, ' ) ', n)
         answer = int(input())
 
+
         if  answer == n:
         
             tm2 = time.time()
@@ -258,8 +352,9 @@ def a1000a(n1, n2, n3, mestake, amount): #пример типа a - (n3 - a)
             list.append(a)
             time1.append(timenumber)
             print('Верно! Осталось примеров: ', amount)
-        
+            
         else:
+            
             tm2 = time.time()
             timenumber = tm2 - tm1
             timenumber = int(timenumber)
@@ -268,8 +363,9 @@ def a1000a(n1, n2, n3, mestake, amount): #пример типа a - (n3 - a)
             mest += 1
             amount += mestake
             print("Неверно. Осталось примеров: ", amount, '\n Допущено ошибок: ', mest)
-            a = '{} {} {} {} {} {} {} {} {}, {}, {}, {}'.format(number, '-', '(', n3, '-', number, ')', '=', n,'введеный ответ: {}'.format(answer), 'Время решения: {} {}'.format(timenumber, 'секунд'), 'Ответ неверен') 
+            a = '{} {} {} {} {} {} {} {} {}, {}, {}, {}'.format(number, '-', '(', n3, '-', number, ')', '=', n,'введеный ответ: {}'.format(answer), 'Время решения: {} {}'.format(timenumber, 'секунд'), 'Ответ неправильный') 
             list.append(a)
+            time1.append(timenumber)
         if amount == 0:
 
             print('Все примеры были решены. Количество допущенных Вами ошибок: ', mest)
@@ -285,7 +381,9 @@ def a1000a(n1, n2, n3, mestake, amount): #пример типа a - (n3 - a)
 
     for i in list:
         print('\n {}'.format(i))
+    
 
-#main(1, 10, 1, 10, 5, 2, '+')
-#multX(1, 10, 1, 3, 5)
-#a1000a(100, 999, 1000, 2, 5)
+manyactions(1, 9, '+', '-', 5, 2)
+main(100, 1000, 100, 1000, 10, 5, '+')
+multX(1, 10, 1, 3, 5)
+a1000a(100, 999, 1000, 2, 5)
