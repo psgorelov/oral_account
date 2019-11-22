@@ -336,7 +336,7 @@ def a1000a(n1, n2, n3, mestake, amount): #пример типа a - (n3 - a) n1 
             continue
         
         n = number - (n3 - number)
-        print(number, ' - ', '( ', n3, ' - ', number, ' ) ', n)
+        print(number, ' - ', '( ', n3, ' - ', number, ' ) ')
         answer = int(input())
 
 
@@ -383,7 +383,7 @@ def a1000a(n1, n2, n3, mestake, amount): #пример типа a - (n3 - a) n1 
         print('\n {}'.format(i))
     
 
-#manyactions(1, 9, '+', '-', 5, 2)
-#main(100, 1000, 100, 1000, 10, 5, '+')
-#multX(1, 10, 1, 3, 5)
-#a1000a(100, 999, 1000, 2, 5)
+manyactions(100, 999, '+', '-', 50, 10)
+main(100, 1000, 100, 1000, 10, 20, '+')
+multX(100, 999, 10, 20, 5)
+a1000a(100, 999, 1000, 5, 5)
